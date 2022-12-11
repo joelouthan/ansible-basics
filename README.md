@@ -1,6 +1,12 @@
 ![](ansible-basics-black-banner.png)
 # Ansible Basics
 
+## Built With
+
+[![tools](https://skillicons.dev/icons?i=ansible,vscode,vim,python,bash,md,css,html,linux,git,github)](https://theologic.us/contact-me/)
+
+## Why
+
 Since the demise of Media Temple closing shop and switching brands to GoDaddy, I have decided to put my big boy pants on and move to a real hosting provider.
 
 Enter in [Linode](https://www.linode.com)!
