@@ -1,4 +1,4 @@
-![](ansible-basics-black-banner.png)
+![](/logos/ansible-basics-teal-1280.png)
 # Ansible Basics
 
 ## Built With
