@@ -128,14 +128,14 @@ Okie smokes. Now what?
 
 Now, we have to configure `argcomplete`.
 
-I am going to be super lazy and do the global configuration method. Use this if you use **bash**:
+I am going to be super lazy and do the global configuration method. Use this if you use `bash`:
 
 ```
 activate-global-python-argcomplete --user
 Installing bash completion script /Users/jlouthan/.bash_completion.d/python-argcomplete
 ```
 
-I, myself, am a man of culture and refined tastes and use **zsh** for my shell. To which, follow these commands:
+I, myself, am a man of culture and refined tastes and use `zsh` for my shell. To which, follow these commands:
 
 ```zsh
 autoload -U bashcompinit
