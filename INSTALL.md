@@ -7,7 +7,7 @@
 
 ## Source
 
-Using the step-by-step at Ansible Docs: [ansible.com](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+Using the step-by-step at Ansible Docs: [docs.ansible.com](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
 ## Installing
 
