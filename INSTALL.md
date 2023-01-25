@@ -194,7 +194,14 @@ So I am going to move that bad boy over to my personal `.ansible` directory:
 
 Bon appetite!
 
-Now, if memory serves me correctly, I think Ansible scans a few places (`/etc/`, `$HOME`, `pwd`, etc.) when you try to run an ansible command for an `ansible.cfg`. And depending on the location, certain `ansible.cfg` files take precedence over. The order is somewhere. I will update this when I find it.
+Now you can stick `ansible.cfg` anywhere you want as long as you stick it in one of the following directories, which Ansibles looks in, first to last:
+
+- ANSIBLE_CONFIG (environment variable if set)
+- `ansible.cfg` (in the current directory)
+- `~/.ansible.cfg` (in the home directory)
+- `/etc/ansible/ansible.cfg`
+
+Now, when Ansible finds it, it only uses that one and ignores the rest of them. For more information, please check out **The Configuration File** over at [Ansible Docs](https://docs.ansible.com/ansible/latest/reference_appendices/config.html#the-configuration-file).
 
 TODO:
 
