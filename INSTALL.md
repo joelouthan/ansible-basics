@@ -9,17 +9,19 @@
 
 Using the step-by-step at Ansible Docs: [docs.ansible.com](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
-## Installing
+## Installing Ansible
 
 ### My laptop as the control node
 
 So your control node is the node (think laptop, workstation, server, container, etc..) is where you want to run Ansible command line from. Now, keeping in mind, this control node must:
 
-- be able to have a command line (WSL for Windows)
+- be able to have a command line (either Terminal in  Linux, macOS, or UNIX or [WSL for Windows](https://learn.microsoft.com/en-us/windows/wsl/install))
 - and have at least Python 3.9 installed
-- and be able to reach out and connect to your devices over TCP port 22 with the SSH protocol (there can be exceptions to this--but those are headaches and I am not trying to reinvent the wheel)
+- and be able to reach out and connect to your devices over TCP port 22 with the SSH protocol (there can be exceptions to this--but those are headaches and I am not trying to reinvent the wheel here.)
 
 For the sake of my personal setup, my Mac laptop is perfect for a control node because I hold the keys to the kingdom. That is, my private ssh keys that I use to passwordless SSH into my servers are on this laptop.
+
+### Install Python
 
 ```zsh
 python --version
@@ -45,10 +47,13 @@ Running `brew update --auto-update`...
 
 Then checking my installs because I am a good lil' SysAdmin 😊
 
-```zswhich pip
+```zsj
+which pip
 pip: aliased to /usr/local/bin/pippython3 -m pip -V
 pip 22.3.1 from /usr/local/lib/python3.9/site-packages/pip (python 3.9)
 ```
+
+### Install Ansible Core
 
 Now for the real magic: FINALLY installing Ansible!
 
@@ -108,7 +113,7 @@ Noice!
 
 Now I am not going to run `devel` of Ansible. So I get to skip that.
 
-## Installing additional components
+#### Installing additional components
 
 But something that did catch my eye: [Adding Ansible command shell completion](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#adding-ansible-command-shell-completion)
 
@@ -143,7 +148,7 @@ bashcompinit
 eval "$(register-python-argcomplete my-awesome-script)"
 ```
 
-## Configuring
+## Configuring Ansible
 
 Now we must touch the almighty `ansible.cfg` file. As you might suspect, this controls how you Ansible works on your control node. If you are suspecting that this is important, you would be correct.
 
