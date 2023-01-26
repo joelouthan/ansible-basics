@@ -148,7 +148,7 @@ bashcompinit
 eval "$(register-python-argcomplete my-awesome-script)"
 ```
 
-## Configuring Ansible
+## Configuring Ansible `ansible.cfg`
 
 Now we must touch the almighty `ansible.cfg` file. As you might suspect, this controls how you Ansible works on your control node. If you are suspecting that this is important, you would be correct.
 
@@ -214,3 +214,17 @@ Now, when Ansible finds it, it only uses that one and ignores the rest of them. 
 > **Note**
 > To that end, to help stop bad habits before they start, I am giving you an [example `ansible.cfg` called `EXAMPLE-ansible.cfg`](EXAMPLE-ansible.cfg) in the root of this repo. But in order to make Ansible look in the current directory, you have to specify it. And I am not going to tell you how.
 
+## Inventory `inventory.yml`
+
+I could write the inventory into two file types: `ini` or `yml`. But since all of playbooks are in yaml, I think I want to keep it simple and just write it in yaml.
+
+```yml
+---
+all:
+  hosts:
+    barracks.theologic.us:
+--- 
+```
+
+> **Note**
+> Most up-to-date is location [here](inventory.yml)
