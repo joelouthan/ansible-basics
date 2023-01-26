@@ -199,7 +199,7 @@ So I am going to move that bad boy over to my personal `.ansible` directory:
 
 Bon appetite!
 
-Now you can stick `ansible.cfg` anywhere you want as long as you stick it in one of the following directories, which Ansibles looks in, first to last:
+Now you can stick `ansible.cfg` anywhere you want as long as you stick it in one of the following directories, which Ansible looks in, first to last:
 
 - ANSIBLE_CONFIG (environment variable if set)
 - `ansible.cfg` (in the current directory)
@@ -208,6 +208,9 @@ Now you can stick `ansible.cfg` anywhere you want as long as you stick it in one
 
 Now, when Ansible finds it, it only uses that one and ignores the rest of them. For more information, please check out **The Configuration File** over at [Ansible Docs](https://docs.ansible.com/ansible/latest/reference_appendices/config.html#the-configuration-file).
 
-TODO:
+> **Warning**
+> What you cannot do is keep the `ansible.cfg` file in the same folder as your working Ansible setup. In other words, you cannot expose your `ansible.cfg` to the outside world--whether it be the file itself or the directory that holds `ansible.cfg`. So, `/etc` would be key. Your `$HOME/.ansible` is also ideal (so long as you don't `chown 777` it).
 
+> **Note**
+> To that end, to help stop bad habits before they start, I am giving you an [example `ansible.cfg` called `EXAMPLE-ansible.cfg`](EXAMPLE-ansible.cfg) in the root of this repo. But in order to make Ansible look in the current directory, you have to specify it. And I am not going to tell you how.
 
