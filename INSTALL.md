@@ -111,6 +111,11 @@ Required-by:
 
 Noice!
 
+> **Note**
+> I saw that ansible-code upgraded to `2.14.2` and I was wondering, "How do I upgrade?"
+> `pip install ansible`
+> I know. Confusing because you want to use `pip upgrade` or `pip update` but with `pip` it doesn't work like that.
+
 Now I am not going to run `devel` of Ansible. So I get to skip that.
 
 #### Installing additional components
@@ -222,9 +227,13 @@ I could write the inventory into two file types: `ini` or `yml`. But since all o
 ---
 all:
   hosts:
-    barracks.theologic.us:
+    barracks:
 --- 
 ```
 
 > **Note**
 > Most up-to-date is location [here](inventory.yml)
+
+> **Note**
+> I know for a fact from my control node (my laptop) can hit `barracks` server via hostname alone because it is in my `$HOME/.ssh/config` file. Let us see if Ansible uses this config.
+
