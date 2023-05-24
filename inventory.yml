@@ -1,5 +1,11 @@
 ---
 all:
   hosts:
-    barracks.theologic.us:
+  children:
+    web:
+      hosts:
+        barracks:
+    db:
+      hosts:
+        reactor:
 ---
