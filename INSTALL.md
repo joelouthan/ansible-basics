@@ -33,8 +33,12 @@ I found it super odd that I did not have python installed? Now I remember that I
 brew install python3
 ```
 
-`Running brew update --auto-update...`
-`~`
+**Output:**
+
+```zsh
+Running brew update --auto-update...
+~
+```
 
 > **Note**
 > I use the tilde **~** to denote additional output that would be too much to copypasta here in this little doc.
