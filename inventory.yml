@@ -1,6 +1,8 @@
 ---
 all:
   hosts:
+    barracks:
+    reactor:
   children:
     web:
       hosts:
@@ -8,4 +10,3 @@ all:
     db:
       hosts:
         reactor:
----
