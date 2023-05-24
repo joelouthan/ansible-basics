@@ -268,3 +268,5 @@ all:
 
 > **Note**
 > I know for a fact from my control node (my laptop) can hit `barracks` server via hostname alone because it is in my `$HOME/.ssh/config` file. Let us see if Ansible uses this config.
+
+TODO: Test initial run
