@@ -52,8 +52,7 @@ which pip
 **Output:**
 
 ```zsh
-pip: aliased to /usr/local/bin/pippython3 -m pip -V
-pip 22.3.1 from /usr/local/lib/python3.9/site-packages/pip (python 3.9)
+pip: aliased to /opt/homebrew/bin/pip3
 ```
 
 ### Install Ansible Core
@@ -68,8 +67,8 @@ python3 -m pip install --user ansible
 
 ```zsh
 Collecting ansible
-  Downloading ansible-7.1.0-py3-none-any.whl (42.4 MB)
-       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.4/42.4 MB 2.2 MB/s eta 0:00:00
+  Downloading ansible-7.6.0-py3-none-any.whl (43.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 43.8/43.8 MB 3.3 MB/s eta 0:00:00
 ~
 ```
 
@@ -83,7 +82,7 @@ Collecting ansible
 >```
 > Which makes me want to put this path in my .zshrc
 > ```
-> export PATH="$HOME/bin:$HOME/pilot:/usr/local/bin:`pwd`/flutter/bin:$HOME/Library/Python/3.9/bin"
+> export PATH="$HOME/bin:$HOME/pilot:/usr/local/bin:`pwd`/flutter/bin:$HOME/Library/Python/3.11/bin"
 > ```
 
 Now checking if it is all kosher:
@@ -95,13 +94,13 @@ ansible --version
 **Output:**
 
 ```zsh
-ansible [core 2.14.1]
+ansible [core 2.14.6]
   config file = None
   configured module search path = ['/Users/jlouthan/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
-  ansible python module location = /Users/jlouthan/Library/Python/3.9/lib/python/site-packages/ansible
+  ansible python module location = /Users/jlouthan/Library/Python/3.11/lib/python/site-packages/ansible
   ansible collection location = /Users/jlouthan/.ansible/collections:/usr/share/ansible/collections
-  executable location = /Users/jlouthan/Library/Python/3.9/bin/ansible
-  python version = 3.9.16 (main, Dec  7 2022, 10:16:11) [Clang 14.0.0 (clang-1400.0.29.202)] (/usr/local/opt/python@3.9/bin/python3.9)
+  executable location = /Users/jlouthan/Library/Python/3.11/bin/ansible
+  python version = 3.11.3 (main, Apr  7 2023, 20:13:31) [Clang 14.0.0 (clang-1400.0.29.202)] (/opt/homebrew/opt/python@3.11/bin/python3.11)
   jinja version = 3.1.2
   libyaml = True
 ```
@@ -116,21 +115,21 @@ python3 -m pip show ansible
 
 ```zsh
 Name: ansible
-Version: 7.1.0
+Version: 7.6.0
 Summary: Radically simple IT automation
 Home-page: https://ansible.com/
 Author: Ansible, Inc.
 Author-email: info@ansible.com
 License: GPLv3+
-Location: /Users/jlouthan/Library/Python/3.9/lib/python/site-packages
+Location: /Users/jlouthan/Library/Python/3.11/lib/python/site-packages
 Requires: ansible-core
-Required-by: 
+Required-by:
 ```
 
 Noice!
 
 > **Note**
-> I saw that ansible-code upgraded to `2.14.2` and I was wondering, "How do I upgrade?"
+> I saw that ansible-code upgraded to `2.14.6` and I was wondering, "How do I upgrade?"
 > `pip install ansible`
 > I know. Confusing because you want to use `pip upgrade` or `pip update` but with `pip` it doesn't work like that.
 
@@ -152,9 +151,10 @@ python3 -m pip install --user argcomplete
 
 ```zsh
 Collecting argcomplete
-  Downloading argcomplete-2.0.0-py2.py3-none-any.whl (37 kB)
+  Downloading argcomplete-3.0.8-py3-none-any.whl (40 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.0/40.0 kB 194.1 kB/s eta 0:00:00
 Installing collected packages: argcomplete
-Successfully installed argcomplete-2.0.0
+Successfully installed argcomplete-3.0.8
 ```
 
 Okie smokes. Now what?
@@ -170,7 +170,10 @@ activate-global-python-argcomplete --user
 **Output:**
 
 ```zsh
-Installing bash completion script /Users/jlouthan/.bash_completion.d/python-argcomplete
+WARNING: zsh has no standard user completions directory. To use global completion with zsh, please run this command using sudo, or run "echo $fpath" and install the completion module into one of the listed directories using "activate-global-python-argcomplete --dest=- > completions-dir/_python-argcomplete".
+Installing /Users/jlouthan/Library/Python/3.11/lib/python/site-packages/argcomplete/bash_completion.d/python-argcomplete to /Users/jlouthan/.bash_completion...
+Installed.
+Please restart your shell or source the installed file to activate it.
 ```
 
 I, myself, am a man of culture and refined tastes and use `zsh` for my shell. To which, follow these commands:
@@ -221,14 +224,8 @@ That is what we call, as the kids like to say nowadays, dope.
 Now I don't have any plugins installed per se. But maybe I do. Lets do the second command and see what I get in return:
 
 ```zsh
-ansible-config init --disabled -t all > ansible.cfg
+ansible-config init --disabled -t all >  ~/ansible.cfg
 ```
-
-When you do that, you will have a `ansible.cfg` in the directory you are in right now.
-
-So I am going to move that bad boy over to my personal `.ansible` directory:
-
-`mv ansible.cfg ~/.ansible`
 
 Bon appetite!
 
@@ -256,7 +253,14 @@ I could write the inventory into two file types: `ini` or `yml`. But since all o
 all:
   hosts:
     barracks:
---- 
+    reactor:
+  children:
+    web:
+      hosts:
+        barracks:
+    db:
+      hosts:
+        reactor:
 ```
 
 > **Note**
