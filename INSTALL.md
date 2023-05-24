@@ -25,30 +25,29 @@ For the sake of my personal setup, my Mac laptop is perfect for a control node b
 
 ```zsh
 python --version
-zsh: no such file or directory: /usr/local/bin/python3
-python -v
-zsh: no such file or directory: /usr/local/bin/python3
-python
-zsh: no such file or directory: /usr/local/bin/python3
-pip install python
-zsh: no such file or directory: /usr/local/bin/pip3
 ```
 
 I found it super odd that I did not have python installed? Now I remember that I wiped/reinstalled macOS. Ah ha!
 
 ```zsh
 brew install python3
-Running `brew update --auto-update`...
-~
 ```
+
+`Running brew update --auto-update...`
+`~`
 
 > **Note**
 > I use the tilde **~** to denote additional output that would be too much to copypasta here in this little doc.
 
 Then checking my installs because I am a good lil' SysAdmin 😊
 
-```zsj
+```zsh
 which pip
+```
+
+**Output:**
+
+```zsh
 pip: aliased to /usr/local/bin/pippython3 -m pip -V
 pip 22.3.1 from /usr/local/lib/python3.9/site-packages/pip (python 3.9)
 ```
@@ -59,6 +58,11 @@ Now for the real magic: FINALLY installing Ansible!
 
 ```zsh
 python3 -m pip install --user ansible
+```
+
+**Output:**
+
+```zsh
 Collecting ansible
   Downloading ansible-7.1.0-py3-none-any.whl (42.4 MB)
        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.4/42.4 MB 2.2 MB/s eta 0:00:00
@@ -82,6 +86,11 @@ Now checking if it is all kosher:
 
 ```zsh
 ansible --version
+```
+
+**Output:**
+
+```zsh
 ansible [core 2.14.1]
   config file = None
   configured module search path = ['/Users/jlouthan/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
@@ -97,6 +106,11 @@ And now, checking the version of Ansible installed:
 
 ```zsh
 python3 -m pip show ansible
+```
+
+**Output:**
+
+```zsh
 Name: ansible
 Version: 7.1.0
 Summary: Radically simple IT automation
@@ -128,6 +142,11 @@ First, install `argcomplete`.
 
 ```zsh
 python3 -m pip install --user argcomplete
+```
+
+**Output:**
+
+```zsh
 Collecting argcomplete
   Downloading argcomplete-2.0.0-py2.py3-none-any.whl (37 kB)
 Installing collected packages: argcomplete
@@ -140,8 +159,13 @@ Now, we have to configure `argcomplete`.
 
 I am going to be super lazy and do the global configuration method. Use this if you use `bash`:
 
-```
+```zsh
 activate-global-python-argcomplete --user
+```
+
+**Output:**
+
+```zsh
 Installing bash completion script /Users/jlouthan/.bash_completion.d/python-argcomplete
 ```
 
@@ -236,4 +260,3 @@ all:
 
 > **Note**
 > I know for a fact from my control node (my laptop) can hit `barracks` server via hostname alone because it is in my `$HOME/.ssh/config` file. Let us see if Ansible uses this config.
-
