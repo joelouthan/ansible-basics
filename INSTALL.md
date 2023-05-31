@@ -67,8 +67,7 @@ python3 -m pip install --user ansible
 
 ```zsh
 Collecting ansible
-  Downloading ansible-7.6.0-py3-none-any.whl (43.8 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 43.8/43.8 MB 3.3 MB/s eta 0:00:00
+  Downloading ansible-8.0.0-py3-none-any.whl (42.2 MB)
 ~
 ```
 
@@ -94,13 +93,13 @@ ansible --version
 **Output:**
 
 ```zsh
-ansible [core 2.14.6]
+ansible [core 2.15.0]
   config file = None
   configured module search path = ['/Users/jlouthan/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
-  ansible python module location = /Users/jlouthan/Library/Python/3.11/lib/python/site-packages/ansible
+  ansible python module location = /Users/jlouthan/Library/Python/3.9/lib/python/site-packages/ansible
   ansible collection location = /Users/jlouthan/.ansible/collections:/usr/share/ansible/collections
-  executable location = /Users/jlouthan/Library/Python/3.11/bin/ansible
-  python version = 3.11.3 (main, Apr  7 2023, 20:13:31) [Clang 14.0.0 (clang-1400.0.29.202)] (/opt/homebrew/opt/python@3.11/bin/python3.11)
+  executable location = /Users/jlouthan/Library/Python/3.9/bin/ansible
+  python version = 3.9.6 (default, Mar 10 2023, 20:16:38) [Clang 14.0.3 (clang-1403.0.22.14.1)] (/Library/Developer/CommandLineTools/usr/bin/python3)
   jinja version = 3.1.2
   libyaml = True
 ```
@@ -115,13 +114,13 @@ python3 -m pip show ansible
 
 ```zsh
 Name: ansible
-Version: 7.6.0
+Version: 8.0.0
 Summary: Radically simple IT automation
 Home-page: https://ansible.com/
 Author: Ansible, Inc.
 Author-email: info@ansible.com
 License: GPLv3+
-Location: /Users/jlouthan/Library/Python/3.11/lib/python/site-packages
+Location: /Users/jlouthan/Library/Python/3.9/lib/python/site-packages
 Requires: ansible-core
 Required-by:
 ```
@@ -129,7 +128,7 @@ Required-by:
 Noice!
 
 > **Note**
-> I saw that ansible-code upgraded to `2.14.6` and I was wondering, "How do I upgrade?"
+> I saw that ansible-code upgraded to `2.15.0` and I was wondering, "How do I upgrade?"
 > `pip install ansible`
 > I know. Confusing because you want to use `pip upgrade` or `pip update` but with `pip` it doesn't work like that.
 
@@ -150,9 +149,10 @@ python3 -m pip install --user argcomplete
 **Output:**
 
 ```zsh
+argcomplete
 Collecting argcomplete
   Downloading argcomplete-3.0.8-py3-none-any.whl (40 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.0/40.0 kB 194.1 kB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.0/40.0 kB 221.1 kB/s eta 0:00:00
 Installing collected packages: argcomplete
 Successfully installed argcomplete-3.0.8
 ```
@@ -224,7 +224,7 @@ That is what we call, as the kids like to say nowadays, dope.
 Now I don't have any plugins installed per se. But maybe I do. Lets do the second command and see what I get in return:
 
 ```zsh
-ansible-config init --disabled -t all >  ~/ansible.cfg
+ansible-config init --disabled -t all >  ~/.ansible/ansible.cfg
 ```
 
 Bon appetite!
